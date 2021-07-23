@@ -23,6 +23,7 @@
 
 body {
   background-color: #F2F2F2;
+	width: 100%;
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -58,9 +59,6 @@ nav ul {
 /*}*/
 
 /* Start Menu Bar Styling */
-.content {
-  padding: 0 20px;
-}
 
 
 
@@ -72,13 +70,7 @@ nav ul {
   font-weight: bold;
 }
 
-.toggler {
-  color: #5FC0DC;
-  cursor: pointer;
-  position: absolute;
-  top: 8px;
-  right: 50px;
-}
+
 
 
 
@@ -86,16 +78,7 @@ nav ul {
   color: #5FC0DC;
 }
 
-.side-nav {
-  text-align: center;
-}
 
-.side-nav a {
-  text-decoration: none;
-  color: #FFE500;
-  padding-right: 15px;
-  line-height: 40px;
-}
 
 /* End of navigation styling */
 section {
@@ -118,95 +101,83 @@ section:after {
   color: #FFE500;
 }
 
-@media screen and (min-width: 872px) {
   
   .content {
     padding: 0 50px;
   }
   
-  .toggler {
-    display: none;
-  }
-  
-  nav {
-    display: inline-block !important; /* prevents the navigation to hide when resizing */
-    position: relative;
-    width: auto;
-    float: none;
-    padding: 5px 0;
-  }
- 
-  nav ul {
-    float: left;
-  }
-  
-  nav ul li {
-    display: inline-block;
-    padding-right: 20px;
-  }
-  
-  .side-nav {
-   float: right;
-  }
+.toggler {
+	display: none;
 }
 
-/**
-* body background styling and image
-*/
-
-.showcase {
-	/*
-		1) color affects text only which is why you cant see anything in this class.
-		2) do you want this to be a here image?
-		3) Be very careful with absolute positioning things, it can cause a lot of confusion and generally there are some more simpler methods of laying things out
-		 -- id offer more help with the image but I dont quite know what your goal is
-	 */
-  color: #fff;
-  height: 100vh;
-  position: relative;
+nav {
+	display: inline-block !important; /* prevents the navigation to hide when resizing */
+	position: relative;
+	width: auto;
+	float: none;
+	padding: 5px 0;
 }
+
+a {
+  color: #ffffff;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #5FC0DC;
+}
+
+nav ul a {
+	margin-top: auto;
+}
+
+nav ul li {
+	display: inline-block;
+	padding-right: 20px;
+}
+
+.side-nav {
+	float: right;
+}
+
+div {
+	border: red solid 1px;
+}
+
 
 
  /*
  	Absolute positioning is throughing you off a little bit, try styleing the showcase div from the top, also keep in mind that we already have an img tag in the html that links off to the image so we dont need to set the background image as the picture as well, unless we want a hero image with text to be displayed over top, if that is the desired outcome than remove the img tag from the html
   */
-.showcase:before {
-  content: '';
-  background: url('../images/Kayaking.jpg') no-repeat center center/cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
+.hero-image {
+	width:100vw;
+
+	  background: url('../images/Kayaking.jpg') no-repeat center center/cover;
+	  height: 40vh;
+	  z-index: -1;
+
+}
+
+.nav-flex {
+	padding: 15px 50px 15px 50px;
+	display: flex;
+	justify-content: space-between;
 }
 
 /**
 * Main Content Styling
 */
 
-.showcase .showcase-inner {
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   justify-content: center;
-   text-align: center;
-   height: 100%;
-}
 
 /*
 	probably just have one h1 {} rule at the top and have the H1 styled the same on all pages
  */
-.showcase h1 {
-   font-size: 4rem;
-}
 
 /*
 	same with the p tag. globally set these variables as a starting point and then if you need them different later on, you can make a more specific css class
  */
-.showcase p {
-   font-size: 1.3rem;
-}
+
 
 /**
 * Contact Us Styling
@@ -313,244 +284,253 @@ footer {
 	Chris's added styles below
  */
 
+
+@media screen and (min-width: 768px) {
+
+}
+
+
+
+
+
 .main-nav {
 	display: flex;
 	justify-content: space-between;
 }
 
 
-/*body {*/
-/*	font-family: 'Ubuntu', sans-serif;*/
-/*	@apply text-gray-50;*/
-/*}*/
+body {
+	font-family: 'Ubuntu', sans-serif;
+	@apply text-gray-50;
+}
 
-/*main {*/
-/*	@apply p-6;*/
-/*}*/
+main {
+	@apply p-6;
+}
 
-/*h1 {*/
-/*	font-size: 40px;*/
-/*	font-weight: 700;*/
-/*	@apply mt-10 pb-4;*/
-/*}*/
+h1 {
+	font-size: 40px;
+	font-weight: 700;
+	@apply mt-10 pb-4;
+}
 
-/*h2 {*/
-/*	font-size: 33px;*/
-/*	font-weight: 400;*/
-/*	@apply mt-8 mb-4;*/
-/*}*/
+h2 {
+	font-size: 33px;
+	font-weight: 400;
+	@apply mt-8 mb-4;
+}
 
-/*h3 {*/
-/*	font-size: 28px;*/
-/*	font-weight: 400;*/
-/*}*/
+h3 {
+	font-size: 28px;
+	font-weight: 400;
+}
 
-/*h4 {*/
-/*	font-size: 23px;*/
-/*	font-weight: 400;*/
-/*}*/
+h4 {
+	font-size: 23px;
+	font-weight: 400;
+}
 
-/*!*  Subtitle  *!*/
-/*h5 {*/
-/*	font-size: 19px;*/
-/*	font-weight: 500;*/
-/*	color: #6F7885;*/
-/*}*/
+/*  Subtitle  */
+h5 {
+	font-size: 19px;
+	font-weight: 500;
+	color: #6F7885;
+}
 
-/*p {*/
-/*	font-size: 16px;*/
-/*	font-weight: 400;*/
-/*}*/
+p {
+	font-size: 16px;
+	font-weight: 400;
+}
 
-/*a {*/
-/*	font-size: 16px;*/
-/*	font-weight: 500;*/
-/*	color: #008DD5;*/
+a {
+	font-size: 16px;
+	font-weight: 500;
+	color: #008DD5;
 
-/*}*/
-
-
-/*small, .text-small {*/
-/*	font-size: 13px;*/
-/*	font-weight: 400;*/
-/*}*/
+}
 
 
-
-/*input, #card-element {*/
-/*	@apply*/
-/*	block*/
-/*	w-full*/
-/*	py-2*/
-/*	px-4*/
-/*	text-gray-100*/
-/*	border-b-2*/
-/*	bg-input-inactive*/
-/*	border-gray-400*/
-/*	focus:border-blue-500*/
-/*	focus:bg-input-active*/
-/*	transition*/
-/*	duration-300*/
-/*	outline-none*/
-/*}*/
-
-/*!**/
-/*	Number input remove default increment/ decrement styling start*/
-/* *!*/
-/*input::-webkit-outer-spin-button,*/
-/*input::-webkit-inner-spin-button {*/
-/*	-webkit-appearance: none;*/
-/*	margin: 0;*/
-/*}*/
-
-/*!* Firefox *!*/
-/*input[type=number] {*/
-/*	-moz-appearance: textfield;*/
-/*}*/
-
-/*input[type='date'] {*/
-/*	-webkit-appearance: textfield;*/
-/*	-moz-appearance: textfield;*/
-/*	appearance: textfield;*/
-/*}*/
-/*!**/
-/*	Number input remove default increment/ decrement styling end*/
-/* *!*/
+small, .text-small {
+	font-size: 13px;
+	font-weight: 400;
+}
 
 
-/*.select {*/
-/*	overflow: hidden;*/
-/*	position: relative;*/
-/*	display: block;*/
-/*}*/
+
+input, #card-element {
+	@apply
+	block
+	w-full
+	py-2
+	px-4
+	text-gray-100
+	border-b-2
+	bg-input-inactive
+	border-gray-400
+	focus:border-blue-500
+	focus:bg-input-active
+	transition
+	duration-300
+	outline-none
+}
+
+/*
+	Number input remove default increment/ decrement styling start
+ */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+	-moz-appearance: textfield;
+}
+
+input[type='date'] {
+	-webkit-appearance: textfield;
+	-moz-appearance: textfield;
+	appearance: textfield;
+}
+/*
+	Number input remove default increment/ decrement styling end
+ */
 
 
-/*!*https://img.icons8.com/ios-glyphs/344/chevron-down.png*!*/
-/*select {*/
-/*	padding: .9rem .7rem;*/
-/*	@apply*/
-/*	block*/
-/*	w-full*/
-/*	py-2*/
-/*	text-gray-100*/
-/*	border-b-2*/
-/*	bg-input-inactive*/
-/*	border-gray-400*/
-/*	focus:border-blue-500*/
-/*	focus:bg-input-active*/
-/*	transition*/
-/*	duration-300*/
-/*	outline-none;*/
-/*}*/
+.select {
+	overflow: hidden;
+	position: relative;
+	display: block;
+}
 
-/*button {*/
-/*	@apply*/
-/*	outline-none;*/
 
-/*}*/
+/*https://img.icons8.com/ios-glyphs/344/chevron-down.png*/
+select {
+	padding: .9rem .7rem;
+	@apply
+	block
+	w-full
+	py-2
+	text-gray-100
+	border-b-2
+	bg-input-inactive
+	border-gray-400
+	focus:border-blue-500
+	focus:bg-input-active
+	transition
+	duration-300
+	outline-none;
+}
 
-/*!* ----- Images & Thumbnails ----- *!*/
+button {
+	@apply
+	outline-none;
 
-/*img.item {*/
-/*	display: block;*/
-/*	object-fit: contain;*/
-/*	max-width: fit-content;*/
-/*	width: 4rem;*/
-/*	height: 4rem;*/
-/*}*/
+}
 
-/*img.item.thumbnail {*/
-/*	width: 1.5rem;*/
-/*	height: 1.5rem;*/
-/*}*/
+/* ----- Images & Thumbnails ----- */
 
-/*!* ----- Buttons ----- *!*/
+img.item {
+	display: block;
+	object-fit: contain;
+	max-width: fit-content;
+	width: 4rem;
+	height: 4rem;
+}
 
-/*.btn {*/
-/*	@apply px-12 py-2 rounded-full w-full uppercase tracking-wide ring-gray-300;*/
-/*}*/
-/*.btn:hover {*/
-/*	@apply opacity-95;*/
-/*}*/
-/*.btn:focus {*/
-/*	@apply outline-none ring;*/
-/*}*/
-/*.btn:disabled {*/
-/*	@apply opacity-25;*/
-/*}*/
+img.item.thumbnail {
+	width: 1.5rem;
+	height: 1.5rem;
+}
 
-/*.btn.btn-link {*/
-/*	@apply p-0;*/
-/*}*/
-/*.btn.btn-link:focus {*/
-/*	@apply outline-none ring-0;*/
-/*}*/
+/* ----- Buttons ----- */
 
-/*.btn-primary {*/
-/*	@apply text-gray-100;*/
-/*	background: rgb(10,173,255);*/
-/*	background: linear-gradient(180deg, rgba(10,173,255,1) 0%, rgba(0,141,213,1) 100%);*/
-/*	box-shadow: 0 2px 4px rgba(0, 141, 213, 0.3);*/
-/*}*/
+.btn {
+	@apply px-12 py-2 rounded-full w-full uppercase tracking-wide ring-gray-300;
+}
+.btn:hover {
+	@apply opacity-95;
+}
+.btn:focus {
+	@apply outline-none ring;
+}
+.btn:disabled {
+	@apply opacity-25;
+}
 
-/*.btn-danger {*/
-/*	@apply text-gray-100;*/
-/*	background: linear-gradient(180deg, rgb(235, 99, 71) 0%, rgb(232, 76, 43) 100%);*/
-/*	box-shadow: 0 2px 4px rgba(232, 76, 43, 0.3);*/
-/*}*/
+.btn.btn-link {
+	@apply p-0;
+}
+.btn.btn-link:focus {
+	@apply outline-none ring-0;
+}
 
-/*.btn-dark {*/
-/*	@apply text-gray-100;*/
-/*	background: rgb(84, 90, 100);*/
-/*	background: linear-gradient(180deg, rgba(84, 90, 100,1) 0%, rgba(65, 70, 78, 1) 100%);*/
-/*	box-shadow: 0 2px 4px rgba(65, 70, 78, 0.3);*/
-/*}*/
+.btn-primary {
+	@apply text-gray-100;
+	background: rgb(10,173,255);
+	background: linear-gradient(180deg, rgba(10,173,255,1) 0%, rgba(0,141,213,1) 100%);
+	box-shadow: 0 2px 4px rgba(0, 141, 213, 0.3);
+}
 
-/*.btn-disabled {*/
-/*	background-color: transparent;*/
-/*	@apply text-gray-400 border-2 border-gray-400*/
-/*}*/
+.btn-danger {
+	@apply text-gray-100;
+	background: linear-gradient(180deg, rgb(235, 99, 71) 0%, rgb(232, 76, 43) 100%);
+	box-shadow: 0 2px 4px rgba(232, 76, 43, 0.3);
+}
 
-/*.btn-secondary {*/
-/*	position:relative;*/
-/*}*/
-/*.btn-secondary::before {*/
-/*	content:"";*/
-/*	position:absolute;*/
-/*	top:0;*/
-/*	left:0;*/
-/*	right:0;*/
-/*	bottom:0;*/
-/*	border-radius:50px;*/
-/*	padding:2px;*/
-/*	background:linear-gradient(180deg, rgba(10,173,255,1) 0%, rgba(0,141,213,1) 100%);*/
-/*	-webkit-mask:*/
-/*			linear-gradient(#fff 0 0) content-box,*/
-/*			linear-gradient(#fff 0 0);*/
-/*	-webkit-mask-composite: destination-out;*/
-/*	mask-composite: exclude;*/
-/*}*/
+.btn-dark {
+	@apply text-gray-100;
+	background: rgb(84, 90, 100);
+	background: linear-gradient(180deg, rgba(84, 90, 100,1) 0%, rgba(65, 70, 78, 1) 100%);
+	box-shadow: 0 2px 4px rgba(65, 70, 78, 0.3);
+}
 
-/*.btn-primary-outline {*/
-/*	position: relative;*/
-/*}*/
-/*.btn-primary-outline::before {*/
-/*	content: "";*/
-/*	position: absolute;*/
-/*	top: 0;*/
-/*	left: 0;*/
-/*	right: 0;*/
-/*	bottom: 0;*/
-/*	border-radius: 50px;*/
-/*	padding: 2px;*/
-/*	background: linear-gradient(180deg, rgba(10,173,255,1) 0%, rgba(0,141,213,1) 100%);*/
-/*	-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);*/
-/*	-webkit-mask-composite: destination-out;*/
-/*	mask-composite: exclude;*/
-/*}*/
+.btn-disabled {
+	background-color: transparent;
+	@apply text-gray-400 border-2 border-gray-400
+}
 
-/*@media (min-width: 1024px) {*/
-/*	.btn {*/
-/*		@apply w-auto;*/
-/*	}*/
-/*}*/
+.btn-secondary {
+	position:relative;
+}
+.btn-secondary::before {
+	content:"";
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	border-radius:50px;
+	padding:2px;
+	background:linear-gradient(180deg, rgba(10,173,255,1) 0%, rgba(0,141,213,1) 100%);
+	-webkit-mask:
+			linear-gradient(#fff 0 0) content-box,
+			linear-gradient(#fff 0 0);
+	-webkit-mask-composite: destination-out;
+	mask-composite: exclude;
+}
+
+.btn-primary-outline {
+	position: relative;
+}
+.btn-primary-outline::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-radius: 50px;
+	padding: 2px;
+	background: linear-gradient(180deg, rgba(10,173,255,1) 0%, rgba(0,141,213,1) 100%);
+	-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+	-webkit-mask-composite: destination-out;
+	mask-composite: exclude;
+}
+
+@media (min-width: 1024px) {
+	.btn {
+		@apply w-auto;
+	}
+}
