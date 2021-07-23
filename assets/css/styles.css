@@ -1,5 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
+/* ===================================
+
+	We want to think about are css file with a very "hierarchal" approach
+
+	 I would put all html element styles at the top. Styles that will effect the most number of things and below should be more and more specific rules,
+	media queries should typically always be at the bottom of a page for instance because they likely only affect a single element on a page but also only affect it when the screen size is at a certain point.
+
+	At the very bottom I have pasted in some css on a current work problem, It might not be useful to you but hopefully you can get an understanding of how I organize my css, just uncomment it to get a better look at it, your text editor should have a comment/ uncomment hotkey I strongly recommend learning it
+
+ ==================================== */
+
+	/*
+		box-sizing: border box on the * element applies to every element. I noticed you also declare it on a couple other elements/classes just something to note
+
+	 */
 * {
   margin: 0;
   padding: 0;
@@ -11,17 +26,43 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+/* I removed all your header tags so this rule isnt being applied anywhere */
+header {
+	width: 100%;
+	background-color: #2F2F2F;
+	position: fixed;
+	z-index: 999;
+}
+
+/* Begin Navigation Styling */
+nav {
+	width: 100%;
+	display: none;
+}
+
+nav ul {
+	list-style: none;
+}
+
+/* Why there is nothing wrong with this level of specificity, it might be better to just make focus on the single element here. I
+/*nav ul li a {*/
+/*	text-decoration: none;*/
+/*	color: #F2F2F2;*/
+/*	font-size: 18px;*/
+/*	line-height: 40px;*/
+/*	transition: 0.3s ease-out;*/
+/*}*/
+
+/*nav ul li a:hover {*/
+/*	color: #5FC0DC;*/
+/*}*/
+
 /* Start Menu Bar Styling */
 .content {
   padding: 0 20px;
 }
 
-header {
-  width: 100%;
-  background-color: #2F2F2F;
-  position: fixed;
-  z-index: 999;
-}
+
 
 .logo {
   color: #F2F2F2;
@@ -39,27 +80,7 @@ header {
   right: 50px;
 }
 
-/* Begin Navigation Styling */
-nav {
-  width: 100%;
-  display: none;
-}
 
-nav ul {
-  list-style: none;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: #F2F2F2;
-  font-size: 18px;
-  line-height: 40px;
-  transition: 0.3s ease-out;
-}
-
-nav ul li a:hover {
-  color: #5FC0DC;
-}
 
 .active {
   color: #5FC0DC;
@@ -134,15 +155,24 @@ section:after {
 */
 
 .showcase {
-  background-color: var(--primary-color);
+	/*
+		1) color affects text only which is why you cant see anything in this class.
+		2) do you want this to be a here image?
+		3) Be very careful with absolute positioning things, it can cause a lot of confusion and generally there are some more simpler methods of laying things out
+		 -- id offer more help with the image but I dont quite know what your goal is
+	 */
   color: #fff;
   height: 100vh;
   position: relative;
 }
 
+
+ /*
+ 	Absolute positioning is throughing you off a little bit, try styleing the showcase div from the top, also keep in mind that we already have an img tag in the html that links off to the image so we dont need to set the background image as the picture as well, unless we want a hero image with text to be displayed over top, if that is the desired outcome than remove the img tag from the html
+  */
 .showcase:before {
   content: '';
-  background: url('./Images/Kayaking.jpg') no-repeat center center/cover;
+  background: url('../images/Kayaking.jpg') no-repeat center center/cover;
   position: absolute;
   top: 0;
   left: 0;
@@ -157,17 +187,23 @@ section:after {
 
 .showcase .showcase-inner {
    display: flex;
-   flex-direction: column;
+   flex-direction: row;
    align-items: center;
    justify-content: center;
    text-align: center;
    height: 100%;
 }
 
+/*
+	probably just have one h1 {} rule at the top and have the H1 styled the same on all pages
+ */
 .showcase h1 {
    font-size: 4rem;
 }
 
+/*
+	same with the p tag. globally set these variables as a starting point and then if you need them different later on, you can make a more specific css class
+ */
 .showcase p {
    font-size: 1.3rem;
 }
@@ -272,3 +308,249 @@ footer {
   text-align:center;
   color: #2F2F2F;
 }
+
+/*
+	Chris's added styles below
+ */
+
+.main-nav {
+	display: flex;
+	justify-content: space-between;
+}
+
+
+/*body {*/
+/*	font-family: 'Ubuntu', sans-serif;*/
+/*	@apply text-gray-50;*/
+/*}*/
+
+/*main {*/
+/*	@apply p-6;*/
+/*}*/
+
+/*h1 {*/
+/*	font-size: 40px;*/
+/*	font-weight: 700;*/
+/*	@apply mt-10 pb-4;*/
+/*}*/
+
+/*h2 {*/
+/*	font-size: 33px;*/
+/*	font-weight: 400;*/
+/*	@apply mt-8 mb-4;*/
+/*}*/
+
+/*h3 {*/
+/*	font-size: 28px;*/
+/*	font-weight: 400;*/
+/*}*/
+
+/*h4 {*/
+/*	font-size: 23px;*/
+/*	font-weight: 400;*/
+/*}*/
+
+/*!*  Subtitle  *!*/
+/*h5 {*/
+/*	font-size: 19px;*/
+/*	font-weight: 500;*/
+/*	color: #6F7885;*/
+/*}*/
+
+/*p {*/
+/*	font-size: 16px;*/
+/*	font-weight: 400;*/
+/*}*/
+
+/*a {*/
+/*	font-size: 16px;*/
+/*	font-weight: 500;*/
+/*	color: #008DD5;*/
+
+/*}*/
+
+
+/*small, .text-small {*/
+/*	font-size: 13px;*/
+/*	font-weight: 400;*/
+/*}*/
+
+
+
+/*input, #card-element {*/
+/*	@apply*/
+/*	block*/
+/*	w-full*/
+/*	py-2*/
+/*	px-4*/
+/*	text-gray-100*/
+/*	border-b-2*/
+/*	bg-input-inactive*/
+/*	border-gray-400*/
+/*	focus:border-blue-500*/
+/*	focus:bg-input-active*/
+/*	transition*/
+/*	duration-300*/
+/*	outline-none*/
+/*}*/
+
+/*!**/
+/*	Number input remove default increment/ decrement styling start*/
+/* *!*/
+/*input::-webkit-outer-spin-button,*/
+/*input::-webkit-inner-spin-button {*/
+/*	-webkit-appearance: none;*/
+/*	margin: 0;*/
+/*}*/
+
+/*!* Firefox *!*/
+/*input[type=number] {*/
+/*	-moz-appearance: textfield;*/
+/*}*/
+
+/*input[type='date'] {*/
+/*	-webkit-appearance: textfield;*/
+/*	-moz-appearance: textfield;*/
+/*	appearance: textfield;*/
+/*}*/
+/*!**/
+/*	Number input remove default increment/ decrement styling end*/
+/* *!*/
+
+
+/*.select {*/
+/*	overflow: hidden;*/
+/*	position: relative;*/
+/*	display: block;*/
+/*}*/
+
+
+/*!*https://img.icons8.com/ios-glyphs/344/chevron-down.png*!*/
+/*select {*/
+/*	padding: .9rem .7rem;*/
+/*	@apply*/
+/*	block*/
+/*	w-full*/
+/*	py-2*/
+/*	text-gray-100*/
+/*	border-b-2*/
+/*	bg-input-inactive*/
+/*	border-gray-400*/
+/*	focus:border-blue-500*/
+/*	focus:bg-input-active*/
+/*	transition*/
+/*	duration-300*/
+/*	outline-none;*/
+/*}*/
+
+/*button {*/
+/*	@apply*/
+/*	outline-none;*/
+
+/*}*/
+
+/*!* ----- Images & Thumbnails ----- *!*/
+
+/*img.item {*/
+/*	display: block;*/
+/*	object-fit: contain;*/
+/*	max-width: fit-content;*/
+/*	width: 4rem;*/
+/*	height: 4rem;*/
+/*}*/
+
+/*img.item.thumbnail {*/
+/*	width: 1.5rem;*/
+/*	height: 1.5rem;*/
+/*}*/
+
+/*!* ----- Buttons ----- *!*/
+
+/*.btn {*/
+/*	@apply px-12 py-2 rounded-full w-full uppercase tracking-wide ring-gray-300;*/
+/*}*/
+/*.btn:hover {*/
+/*	@apply opacity-95;*/
+/*}*/
+/*.btn:focus {*/
+/*	@apply outline-none ring;*/
+/*}*/
+/*.btn:disabled {*/
+/*	@apply opacity-25;*/
+/*}*/
+
+/*.btn.btn-link {*/
+/*	@apply p-0;*/
+/*}*/
+/*.btn.btn-link:focus {*/
+/*	@apply outline-none ring-0;*/
+/*}*/
+
+/*.btn-primary {*/
+/*	@apply text-gray-100;*/
+/*	background: rgb(10,173,255);*/
+/*	background: linear-gradient(180deg, rgba(10,173,255,1) 0%, rgba(0,141,213,1) 100%);*/
+/*	box-shadow: 0 2px 4px rgba(0, 141, 213, 0.3);*/
+/*}*/
+
+/*.btn-danger {*/
+/*	@apply text-gray-100;*/
+/*	background: linear-gradient(180deg, rgb(235, 99, 71) 0%, rgb(232, 76, 43) 100%);*/
+/*	box-shadow: 0 2px 4px rgba(232, 76, 43, 0.3);*/
+/*}*/
+
+/*.btn-dark {*/
+/*	@apply text-gray-100;*/
+/*	background: rgb(84, 90, 100);*/
+/*	background: linear-gradient(180deg, rgba(84, 90, 100,1) 0%, rgba(65, 70, 78, 1) 100%);*/
+/*	box-shadow: 0 2px 4px rgba(65, 70, 78, 0.3);*/
+/*}*/
+
+/*.btn-disabled {*/
+/*	background-color: transparent;*/
+/*	@apply text-gray-400 border-2 border-gray-400*/
+/*}*/
+
+/*.btn-secondary {*/
+/*	position:relative;*/
+/*}*/
+/*.btn-secondary::before {*/
+/*	content:"";*/
+/*	position:absolute;*/
+/*	top:0;*/
+/*	left:0;*/
+/*	right:0;*/
+/*	bottom:0;*/
+/*	border-radius:50px;*/
+/*	padding:2px;*/
+/*	background:linear-gradient(180deg, rgba(10,173,255,1) 0%, rgba(0,141,213,1) 100%);*/
+/*	-webkit-mask:*/
+/*			linear-gradient(#fff 0 0) content-box,*/
+/*			linear-gradient(#fff 0 0);*/
+/*	-webkit-mask-composite: destination-out;*/
+/*	mask-composite: exclude;*/
+/*}*/
+
+/*.btn-primary-outline {*/
+/*	position: relative;*/
+/*}*/
+/*.btn-primary-outline::before {*/
+/*	content: "";*/
+/*	position: absolute;*/
+/*	top: 0;*/
+/*	left: 0;*/
+/*	right: 0;*/
+/*	bottom: 0;*/
+/*	border-radius: 50px;*/
+/*	padding: 2px;*/
+/*	background: linear-gradient(180deg, rgba(10,173,255,1) 0%, rgba(0,141,213,1) 100%);*/
+/*	-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);*/
+/*	-webkit-mask-composite: destination-out;*/
+/*	mask-composite: exclude;*/
+/*}*/
+
+/*@media (min-width: 1024px) {*/
+/*	.btn {*/
+/*		@apply w-auto;*/
+/*	}*/
+/*}*/

@@ -1,9 +1,14 @@
-<title>Contact Us</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css">
+<!DOCTYPE html>
+<html>
+<head>
 
-<header> 
-    <body>
+    <title>Contact Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+
+</head>
+<body>
+
     <div class="content">
       <a class="logo" href="index.html">Kentucky Kayaking</a>
       <a id="myLink" href="#" onclick="MyFunction();return false;">link text</a>
@@ -19,20 +24,21 @@
       
     </div> 
     <div class="loading loading--full-height"></div>
-    </body>
-  </header>  
+
+</body>
+
 
 
 <div class="container">
     <form action="action_page.php">
   
-      <label for="fname">First Name</label>
-      <input type="text" id="fname" name="firstname" placeholder="Your name..">
-      <input id-"name" type="text">
+      <label for="first_name">First Name</label>
+      <input type="text" id="first_name" name="firstname" placeholder="Abe">
+      <input id="name" type="text">
 
   
-      <label for="lname">Last Name</label>
-      <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+      <label for="last_name">Last Name</label>
+      <input type="text" id="last_name" name="lastname" placeholder="Lincoln">
   
       <label for="state">Country</label>
       <select id="state" name="state">
@@ -43,14 +49,45 @@
   
       <label for="subject">Subject</label>
       <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-  
+
       <input type="submit" value="Submit">
-      <button onclick="submitFirstName(event)" tyle="button">Submit</button>
+
+      <button onclick="submitFirstName()" type="button">Submit</button>
   
     </form>
   </div>
-  <body>
+
     <footer>
-      <p>Copyright &copy; 2021 Kentucky Kayaking</p>
-   </footer> 
-  </body>
+        <p>Copyright &copy; 2021 Kentucky Kayaking</p>
+    </footer>
+
+</html>
+
+
+<!-- Check out this example below, This is a good starting point for submitting form data with plain javascript -->
+<!--for validating an email I would look at this answer on stack overflow
+https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
+
+I copy and paste regex all the time, I dont know what any of it actaully means, Im not sure if they are okay with using regex or not...
+if not another way that im sure would be fine for code lou would be to grab the email form element, store it into a variable, and then check to see if it contained an @ and a . character.
+
+there are a lot of different ways to do this so take a stab at it and we can definitely work out the form later if it is still giving you grief
+-->
+
+<form id="myForm" name="myForm">
+    <div>
+        <label for="username">Enter name:</label>
+        <input type="text" id="username" name="username">
+    </div>
+    <button type="button" onclick="clickMe()">Click</button>
+</form>
+
+<script>
+    // JS
+    function clickMe(){
+    let myForm = document.getElementById('myForm');
+    let formData = new FormData(myForm);
+    console.log(formData.get('username'));
+
+}
+</script>
